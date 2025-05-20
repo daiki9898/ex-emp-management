@@ -100,7 +100,7 @@
                 <td>
                   <a
                     href="detail.html"
-                    th:href="@{/employee/showDetail?id=*id}"
+                    th:href="@{'/employee/showDetail?id=' + *{id}}"
                   >
                     <span th:text="*{name}">山田太郎</span>
                   </a>
