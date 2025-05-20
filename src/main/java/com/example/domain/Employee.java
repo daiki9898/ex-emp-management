@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.Date;
 
 /**
- * 従業員情報を表すドメイン
+ * 従業員情報を表すドメイン.
  */
 @Getter
 @Setter
@@ -13,7 +13,6 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 public class Employee {
-
     /** ID(主キー) */
     private Integer id;
     /** 名前 */
@@ -37,5 +36,5 @@ public class Employee {
     /** 特性 */
     private String characteristics;
     /** 扶養人数 */
-    private Integer dependentCount;
+    private Integer dependentsCount;
 }

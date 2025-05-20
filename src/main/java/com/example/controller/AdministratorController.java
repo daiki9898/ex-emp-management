@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * 管理者登録画面を表示する処理を記述する
+ * 管理者情報を操作するコントローラ.
  */
 @Controller
 @RequestMapping
@@ -23,22 +23,13 @@ public class AdministratorController {
     private final AdministratorService administratorService;
     private final HttpSession session;
 
-    /**
-     * ログイン画面にフォワードする.
-     *
-     * @param form ログイン情報を保持するフォーム
-     * @return フォワード先のパス
-     */
-    @GetMapping
-    public String toLogin(LoginForm form) {
-        return "administrator/login";
-    }
+
 
     /**
      * 管理者登録画面にフォワードする.
      *
      * @param form 管理者情報を保持するフォーム
-     * @return フォワード先のパス
+     * @return 管理者登録画面
      */
     @GetMapping("/toInsert")
     public String toInsert(InsertAdministratorForm form) {
@@ -49,19 +40,36 @@ public class AdministratorController {
      * 管理者情報を登録する.
      *
      * @param form 管理者情報を保持するフォーム
-     * @return リダイレクト先のパス
+     * @return ログイン画面
      */
     @PostMapping("/insert")
     public String insert(InsertAdministratorForm form) {
-        // オブジェクトにフォームの中身をコピー
         Administrator administrator = new Administrator();
+        // オブジェクトにフォームの中身をコピー
         BeanUtils.copyProperties(form, administrator);
 
-        // DBへの挿入
         administratorService.insert(administrator);
         return "redirect:/";
     }
 
+    /**
+     * ログイン画面にフォワードする.
+     *
+     * @param form ログイン情報を保持するフォーム
+     * @return ログイン画面
+     */
+    @GetMapping
+    public String toLogin(LoginForm form) {
+        return "administrator/login";
+    }
+
+    /**
+     * ログイン処理をする.
+     *
+     * @param form ログイン情報
+     * @param model リクエストパラメータ
+     * @return 従業員一覧画面(ログイン失敗時はログイン画面)
+     */
     @PostMapping("/login")
     public String login(LoginForm form, Model model) {
         Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
