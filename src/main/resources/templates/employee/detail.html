@@ -90,7 +90,12 @@
             <!-- ここから上を編集する必要はありません -->
 
             <!-- ここにモックのform要素を貼り付けます -->
-            <form method="post" action="list.html" th:object="${employee}">
+            <form
+              method="post"
+              action="list.html"
+              th:action="@{/employee/update}"
+              th:object="${updateEmployeeForm}"
+            >
               <fieldset>
                 <legend>従業員情報</legend>
                 <table class="table table-striped">
@@ -175,7 +180,7 @@
                         name="dependentsCount"
                         id="dependentsCount"
                         class="form-control"
-                        th:value="*{dependentsCount}"
+                        th:field="*{dependentsCount}"
                       />
                     </td>
                   </tr>
