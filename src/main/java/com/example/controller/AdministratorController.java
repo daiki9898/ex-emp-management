@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.domain.Administrator;
 import com.example.form.InsertAdministratorForm;
+import com.example.form.LoginForm;
 import com.example.service.AdministratorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -20,9 +21,20 @@ public class AdministratorController {
     private final AdministratorService administratorService;
 
     /**
+     * ログイン画面にフォワードする.
+     *
+     * @param form ログイン情報を保持するフォーム
+     * @return フォワード先のパス
+     */
+    @GetMapping
+    public String toLogin(LoginForm form) {
+        return "administrator/login";
+    }
+
+    /**
      * 管理者登録画面にフォワードする.
      *
-     * @param form 管理者情報を格納するフォーム
+     * @param form 管理者情報を保持するフォーム
      * @return フォワード先のパス
      */
     @GetMapping("/toInsert")
@@ -33,7 +45,7 @@ public class AdministratorController {
     /**
      * 管理者情報を登録する.
      *
-     * @param form 管理者情報を格納するフォーム
+     * @param form 管理者情報を保持するフォーム
      * @return リダイレクト先のパス
      */
     @PostMapping("/insert")
