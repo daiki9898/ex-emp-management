@@ -62,6 +62,13 @@ public class AdministratorController {
         return "redirect:/";
     }
 
+    /**
+     * ログイン処理をする.
+     *
+     * @param form ログイン情報
+     * @param model リクエストスコープ
+     * @return 遷移先のパス
+     */
     @PostMapping("/login")
     public String login(LoginForm form, Model model) {
         Administrator administrator = administratorService.login(form.getMailAddress(), form.getPassword());
