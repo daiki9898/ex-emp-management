@@ -17,7 +17,8 @@ public class AdministratorService {
 
 
     /**
-     * 管理者情報を挿入する
+     * 管理者情報を挿入する.
+     *
      * @param administrator 管理者情報
      */
     public void insert(Administrator administrator) {

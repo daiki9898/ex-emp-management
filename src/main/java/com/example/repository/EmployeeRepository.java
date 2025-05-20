@@ -22,7 +22,8 @@ public class EmployeeRepository {
     private final NamedParameterJdbcTemplate template;
 
     /**
-     * 従業員一覧情報を入社日(降順)で取得する
+     * 従業員一覧情報を入社日(降順)で取得する.
+     *
      * @return 従業員のリスト
      */
     public List<Employee> findAll() {
@@ -31,7 +32,8 @@ public class EmployeeRepository {
     }
 
     /**
-     * 主キーから従業員情報を取得する
+     * 主キーから従業員情報を取得する.
+     *
      * @param id ID
      * @return 従業員情報
      */
