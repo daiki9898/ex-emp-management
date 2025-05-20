@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * administratorテーブルを操作するリポジトリ(Dao)
+ * administratorsテーブルを操作するリポジトリ(Dao)
  */
 @Repository
 @RequiredArgsConstructor
@@ -28,7 +28,7 @@ public class AdministratorRepository {
      */
     public void insert(Administrator administrator) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(administrator);
-        String sql = "INSERT INTO administrator (name, mail_address, password) VALUES " +
+        String sql = "INSERT INTO administrators (name, mail_address, password) VALUES " +
                 "(:name, :mailAddress, :password)";
 
         template.update(sql, param);
@@ -42,7 +42,7 @@ public class AdministratorRepository {
      * @return 管理者情報
      */
     public Administrator findByEmailAndPassword(String mailAddress, String password) {
-        String sql = "SELECT id, name, mail_address, password FROM administrator " +
+        String sql = "SELECT id, name, mail_address, password FROM administrators " +
                 "WHERE mail_address = :mailAddress AND password = :password";
         SqlParameterSource param = new MapSqlParameterSource()
                 .addValue("mailAddress", mailAddress)

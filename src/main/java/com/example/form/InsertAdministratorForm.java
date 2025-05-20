@@ -15,7 +15,7 @@ public class InsertAdministratorForm {
     /** 名前 */
     private String name;
     /** メールアドレス */
-    private String email;
+    private String mailAddress;
     /** パスワード */
     private String password;
 }
