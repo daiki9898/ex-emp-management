@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 /**
- * administratorsテーブルを操作するリポジトリ(Dao)
+ * administratorsテーブルを操作するリポジトリ(Dao).
  */
 @Repository
 @RequiredArgsConstructor
@@ -35,7 +35,7 @@ public class AdministratorRepository {
     }
 
     /**
-     * メールアドレスとパスワードから管理者情報を取得する
+     * メールアドレスとパスワードから管理者情報を取得する.
      *
      * @param mailAddress メールアドレス
      * @param password パスワード

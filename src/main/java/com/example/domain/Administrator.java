@@ -3,7 +3,7 @@ package com.example.domain;
 import lombok.*;
 
 /**
- * 管理者情報を表すドメイン
+ * 管理者情報を表すドメイン.
  */
 @Getter
 @Setter
@@ -11,8 +11,6 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class Administrator {
-
-
     /** ID(主キー) */
     private Integer id;
     /** 名前 */

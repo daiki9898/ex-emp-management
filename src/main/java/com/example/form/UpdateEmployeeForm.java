@@ -1,20 +1,20 @@
-package com.example.domain;
+package com.example.form;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * 従業員情報を表すドメイン.
+ * 従業員情報更新時に使用するフォーム
  */
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
-public class Employee {
-    /** ID(主キー) */
-    private Integer id;
+public class UpdateEmployeeForm {
+    /** 従業員ID */
+    private String id;
     /** 名前 */
     private String name;
     /** 画像 */
@@ -32,9 +32,9 @@ public class Employee {
     /** 電話番号 */
     private String telephone;
     /** 給料 */
-    private Integer salary;
+    private String salary;
     /** 特性 */
     private String characteristics;
     /** 扶養人数 */
-    private Integer dependentsCount;
+    private String dependentsCount;
 }
