@@ -23,8 +23,6 @@ public class AdministratorController {
     private final AdministratorService administratorService;
     private final HttpSession session;
 
-
-
     /**
      * 管理者登録画面にフォワードする.
      *
@@ -82,6 +80,17 @@ public class AdministratorController {
         // ログインに成功した場合
         session.setAttribute("administratorName", administrator.getName());
         return "redirect:/employee/showList";
+    }
+
+    /**
+     * ログアウトする.
+     *
+     * @return ログイン画面
+     */
+    @GetMapping("/logout")
+    public String logout() {
+        session.invalidate();
+        return "redirect:/";
     }
 
 

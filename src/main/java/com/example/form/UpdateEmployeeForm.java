@@ -13,7 +13,6 @@ import java.util.Date;
 @Setter
 @ToString
 public class UpdateEmployeeForm {
-
     /** 従業員ID */
     private String id;
     /** 名前 */
