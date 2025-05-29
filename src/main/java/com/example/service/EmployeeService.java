@@ -26,6 +26,14 @@ public class EmployeeService {
         return employeeRepository.findAll();
     }
 
+    public List<Employee> findByPage(int pageNumber) {
+        int offsetNumber = 0;
+        if (pageNumber != 1) {
+            offsetNumber = (pageNumber - 1) * 10 - 1; // 10は1ページ当たりの人数
+        }
+        return employeeRepository.findByPage(offsetNumber);
+    }
+
     /**
      * 従業員情報を取得する.
      *

@@ -33,6 +33,12 @@ public class EmployeeRepository {
         return template.query(sql, EMPLOYEE_ROW_MAPPER);
     }
 
+    public List<Employee> findByPage(int offsetNumber) {
+        String sql = "SELECT * FROM employees ORDER BY hire_date DESC LIMIT 10 OFFSET :offsetNumber";
+        SqlParameterSource param = new MapSqlParameterSource("offsetNumber", offsetNumber);
+        return template.query(sql, param, EMPLOYEE_ROW_MAPPER);
+    }
+
     /**
      * 主キーから従業員情報を取得する.
      *
@@ -62,7 +68,6 @@ public class EmployeeRepository {
         String sql = "UPDATE employees SET name = :name, image = :image, gender = :gender, hire_date = :hireDate, " +
                 "mail_address = :mailAddress, zip_code = :zipCode, address = :address, telephone = :telephone, salary = :salary, " +
                 "characteristics = :characteristics, dependents_count = :dependentsCount WHERE id = :id";
-
         template.update(sql, param);
     }
 }
