@@ -85,7 +85,11 @@ public class EmployeeController {
             return "redirect:/";
         }
         if (bindingResult.hasErrors()) {
-            return showDetail(form.getId(), model, form);
+            Integer id = Integer.parseInt(form.getId());
+            Employee employee = employeeService.showDetail(id);
+            // コピーできない画像パスは、直接リクエストスコープにセットする.
+            model.addAttribute("imagePath", employee.getImage());
+            return "employee/detail";
         }
         Employee employee = employeeService.showDetail(Integer.parseInt(form.getId()));
         ModelMapper modelMapper = new ModelMapper();
