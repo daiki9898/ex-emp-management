@@ -2,6 +2,7 @@ package com.example.domain;
 
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -22,7 +23,7 @@ public class Employee {
     /** 性別 */
     private String gender;
     /** 入社日 */
-    private Date hireDate;
+    private LocalDate hireDate;
     /** メールアドレス */
     private String mailAddress;
     /** 郵便番号 */

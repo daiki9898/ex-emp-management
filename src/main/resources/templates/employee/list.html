@@ -58,7 +58,7 @@
                   </a>
                 </td>
                 <td>
-                  <span th:text="*{#dates.format(hireDate, 'yyyy-MM-dd')}"
+                  <span th:text="*{#temporals.format(hireDate, 'yyyy-MM-dd')}"
                     >2016/12/1</span
                   >
                 </td>
@@ -72,6 +72,43 @@
           <!-- ここから下を編集する必要はありません -->
         </div>
       </div>
+      <!-- pagination -->
+      <nav aria-label="Page navigation employee" class="text-center">
+        <ul class="pagination">
+          <li class="page-item" th:classappend="${pageNumber == 1}? 'disabled'">
+            <a
+              class="page-link"
+              th:href="@{/employee/showList(pageNumber=${pageNumber - 1})}"
+              aria-label="Previous"
+            >
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li
+            class="page-item"
+            th:each="i : ${#numbers.sequence(1, session.totalPageNumber)}"
+            th:classappend="${i == pageNumber}? 'active'"
+          >
+            <a
+              class="page-link"
+              th:href="@{/employee/showList(pageNumber=${i})}"
+              th:text="${i}"
+            ></a>
+          </li>
+          <li
+            class="page-item"
+            th:classappend="${pageNumber == session.totalPageNumber}? 'disabled'"
+          >
+            <a
+              class="page-link"
+              th:href="@{/employee/showList(pageNumber=${pageNumber + 1})}"
+              aria-label="Next"
+            >
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
     <!-- end container -->
 
